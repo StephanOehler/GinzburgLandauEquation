@@ -1,0 +1,20 @@
+\documentclass[convert={outext=.eps, command=\unexpanded{pdftops -eps \infile}}]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{amsmath}
+
+% Important: -shell-escape must be added in configure options for pdflatex in TeXstudio
+
+\begin{document}
+	\tikzset{  
+		block/.style    = {draw, thick, rectangle, minimum height = 3em, minimum width = 3em},}
+	\begin{tikzpicture}[auto, thick, >=triangle 45]
+	\node at (0,0)[block,draw,inner sep=0pt,minimum width=3cm,minimum height=1.5cm,name=n1] {$\boldsymbol P(s)$};
+	\node[block,below of=n1,node distance=2cm,minimum width=3cm,minimum height=1.5cm] (mea) {$\boldsymbol R(s)$};
+	\draw[<-] (n1.165) to node[pos = 0.9,below] {$\boldsymbol w$} (-3.6,0.406);
+	\draw[->] (n1.15) to node[pos = 0.77,below] {$\boldsymbol z$} (3.3,0.406);
+	\draw[->] (mea.west) to ++(-1,0) |- node[pos=0.25,right] {$\boldsymbol u$} (n1.195);
+	\draw[<-] (mea.east) to ++(+1,0) |- node[pos=0.25,left] {$\boldsymbol y$} (n1.345);
+	\draw[thick,gray,dashed]  (-3.15,1)  -- (2.7,1) -- (2.7,-2.85) -- (-3.15,-2.85) -- (-3.15,1) node[pos = 0.1,right] {\huge$\boldsymbol G(s)$};
+	\end{tikzpicture}
+\end{document}

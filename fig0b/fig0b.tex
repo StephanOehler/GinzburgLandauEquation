@@ -1,0 +1,21 @@
+\documentclass[convert={outext=.eps, command=\unexpanded{pdftops -eps \infile}}]{standalone}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+\usepackage{amsmath}
+
+
+\begin{document}
+	\tikzset{  
+		block/.style    = {draw, thick, rectangle, minimum height = 3em, minimum width = 3em},}
+		\tikzstyle{sum} = [draw, circle, minimum size=.25cm, node distance=2.5cm]
+	\begin{tikzpicture}[auto, thick, >=triangle 45]
+	\node at (0,0)[block,draw,inner sep=0pt,minimum width=3cm,minimum height=1.5cm,name=n1] {$\boldsymbol P(s)$};
+	\draw[<-] (n1.165) to node[pos = 1,left] {$\begin{bmatrix}
+		\boldsymbol d \\ \boldsymbol n
+		\end{bmatrix} $} (-2.3,0.406);
+	\draw[->] (n1.15) to node[pos = 1,right] {$\boldsymbol z$} (2.5,0.406);	
+	\draw[<-] (n1.195) to node[pos = 1,left] {$\boldsymbol u$} (-2.5,-0.406);
+	\draw[->] (n1.345) to node[pos = 1,right] {$\boldsymbol y$} (2.5,-0.406);	
+	\end{tikzpicture}
+\end{document}
